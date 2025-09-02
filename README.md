@@ -101,15 +101,22 @@ open index.html
 ### 다운로드 링크 업데이트
 
 1. **Android APK 링크**:
+
    ```html
    <!-- docs/index.html에서 수정 -->
-   <a href="https://github.com/mincoln419/shinui/releases/download/v1.0.0/shinui-v1.0.0.apk" class="download-btn android">
+   <a
+     href="https://github.com/mincoln419/shinui/releases/download/v1.0.0/shinui-v1.0.0.apk"
+     class="download-btn android"
+   ></a>
    ```
 
 2. **iOS App Store 링크**:
    ```html
    <!-- docs/index.html에서 수정 -->
-   <a href="https://apps.apple.com/app/shinui/id[앱ID]" class="download-btn ios">
+   <a
+     href="https://apps.apple.com/app/shinui/id[앱ID]"
+     class="download-btn ios"
+   ></a>
    ```
 
 ### 앱 정보 업데이트
@@ -146,12 +153,17 @@ Google Fonts에서 다른 폰트를 선택하고 `index.html`의 링크를 업�
 
 ```html
 <!-- index.html에 추가 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA_MEASUREMENT_ID');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "GA_MEASUREMENT_ID");
 </script>
 ```
 

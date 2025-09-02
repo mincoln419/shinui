@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>시누이 - 시간을 누적하고 이정표를 세우다</title>
+    <meta
+      name="description"
+      content="시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱. 귀여운 잔소리꾼 캐릭터와 함께하는 생산성 앱"
+    />
+    <meta
+      name="keywords"
+      content="시누이, 시간관리, 일기, 생산성, 앱, 다운로드"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="시누이 - 시간을 누적하고 이정표를 세우다"
+    />
+    <meta
+      property="og:description"
+      content="시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱"
+    />
+    <meta
+      property="og:image"
+      content="https://codenyang.github.io/shinui/assets/images/og-image.png"
+    />
+    <meta property="og:url" content="https://codenyang.github.io/shinui" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="시누이 - 시간을 누적하고 이정표를 세우다"
+    />
+    <meta
+      name="twitter:description"
+      content="시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱"
+    />
+    <meta
+      name="twitter:image"
+      content="https://codenyang.github.io/shinui/assets/images/og-image.png"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header */
+      .header {
+        text-align: center;
+        padding: 60px 0 40px;
+        color: white;
+      }
+
+      .logo {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 30px;
+        background: white;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .logo img {
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
+      }
+
+      .app-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .app-subtitle {
+        font-size: 1.2rem;
+        font-weight: 300;
+        opacity: 0.9;
+        margin-bottom: 10px;
+      }
+
+      .app-description {
+        font-size: 1rem;
+        opacity: 0.8;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Main Content */
+      .main-content {
+        background: white;
+        border-radius: 30px 30px 0 0;
+        padding: 60px 0;
+        margin-top: 40px;
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .feature {
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        color: white;
+      }
+
+      .feature h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .feature p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Download Section */
+      .download-section {
+        text-align: center;
+        padding: 60px 0;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        border-radius: 20px;
+        margin: 40px 0;
+      }
+
+      .download-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .download-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .download-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 30px;
+        background: #333;
+        color: white;
+        text-decoration: none;
+        border-radius: 15px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .download-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .download-btn.android {
+        background: linear-gradient(135deg, #3ddc84, #2bb673);
+      }
+
+      .download-btn.ios {
+        background: linear-gradient(135deg, #007aff, #0056b3);
+      }
+
+      .download-btn-icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      /* Characters Section */
+      .characters {
+        text-align: center;
+        padding: 60px 0;
+      }
+
+      .characters-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .characters-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 40px;
+      }
+
+      .character-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .character {
+        background: white;
+        border-radius: 20px;
+        padding: 30px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .character:hover {
+        transform: translateY(-5px);
+      }
+
+      .character-icon {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+      }
+
+      .character.sinunyang {
+        background: linear-gradient(135deg, #ff9a9e, #fecfef);
+      }
+
+      .character.sinugyeon {
+        background: linear-gradient(135deg, #a8edea, #fed6e3);
+      }
+
+      .character h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .character p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      .footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 40px 0;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 30px;
+      }
+
+      .footer-links a {
+        color: white;
+        text-decoration: none;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        opacity: 1;
+      }
+
+      .copyright {
+        opacity: 0.6;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .app-title {
+          font-size: 2rem;
+        }
+
+        .download-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .download-btn {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-links {
+          justify-content: center;
+        }
+      }
+
+      /* Animation */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        animation: fadeInUp 0.8s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="assets/icons/shinui-icon.png" alt="시누이 로고" />
+        </div>
+        <h1 class="app-title fade-in-up">시누이</h1>
+        <p class="app-subtitle fade-in-up">시간을 누적하고 이정표를 세우다</p>
+        <p class="app-description fade-in-up">
+          귀여운 잔소리꾼 캐릭터와 함께하는 24시간 시간 관리 및 3줄 일기 앱
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Features -->
+        <section class="features">
+          <div class="feature fade-in-up">
+            <div class="feature-icon">⏰</div>
+            <h3>24시간 시간 관리</h3>
+            <p>
+              시간대별로 세밀하게 계획하고 실행하는 2단계 체크박스 시스템으로
+              정확한 성과를 측정하세요.
+            </p>
+          </div>
+          <div class="feature fade-in-up">
+            <div class="feature-icon">📝</div>
+            <h3>3줄 일기</h3>
+            <p>
+              느낀점, 후회하는 점, 각오를 통해 하루를 되돌아보고 내일을 위한
+              다짐을 세워보세요.
+            </p>
+          </div>
+          <div class="feature fade-in-up">
+            <div class="feature-icon">📊</div>
+            <h3>통계 및 분석</h3>
+            <p>
+              카테고리별 시간 분배와 완료율을 시각적으로 확인하여 생산성을
+              개선하세요.
+            </p>
+          </div>
+        </section>
+
+        <!-- Download Section -->
+        <section class="download-section fade-in-up">
+          <h2 class="download-title">지금 다운로드하세요</h2>
+          <p class="download-subtitle">
+            Android와 iOS에서 무료로 이용할 수 있습니다
+          </p>
+          <div class="download-buttons">
+            <a href="#" class="download-btn android" id="android-download">
+              <svg
+                class="download-btn-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993.0001.5511-.4482.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.2439 13.8533 7.6818 12 7.6818s-3.5902.5621-5.1367 1.6649L4.841 5.8435a.416.416 0 00-.5676-.1521.416.416 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"
+                />
+              </svg>
+              Android 다운로드
+            </a>
+            <a href="#" class="download-btn ios" id="ios-download">
+              <svg
+                class="download-btn-icon"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+                />
+              </svg>
+              iOS 다운로드
+            </a>
+          </div>
+        </section>
+
+        <!-- Characters -->
+        <section class="characters">
+          <h2 class="characters-title">나만의 시간 코치</h2>
+          <p class="characters-subtitle">
+            두 가지 성격의 캐릭터 중에서 선택하세요
+          </p>
+          <div class="character-grid">
+            <div class="character fade-in-up">
+              <div class="character-icon sinunyang">🐱</div>
+              <h3>시누냥</h3>
+              <p>
+                츤데레 성격의 고양이 코치. 툭툭 던지면서도 끝까지 챙겨주는
+                스타일로 게으름을 경계하는 잔소리꾼이지만 속은 따뜻한
+                조언자입니다.
+              </p>
+            </div>
+            <div class="character fade-in-up">
+              <div class="character-icon sinugyeon">🐶</div>
+              <h3>시누견</h3>
+              <p>
+                활발하고 직진형인 시바견 코치. 열정 넘치는 cheerleader로
+                적극적으로 밀어주는 트레이너 역할을 하며 기운을 북돋우는
+                응원가를 불러줍니다.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="https://github.com/codenyang/shinui" target="_blank"
+              >GitHub</a
+            >
+            <a href="mailto:contact@codenyang.com">문의하기</a>
+            <a href="privacy.html">개인정보처리방침</a>
+            <a href="terms.html">이용약관</a>
+          </div>
+          <div class="copyright">© 2024 CodeNYang. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 다운로드 버튼 클릭 이벤트
+      document
+        .getElementById("android-download")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          // TODO: 실제 APK 다운로드 링크로 변경
+          alert("Android 앱이 곧 출시됩니다!");
+        });
+
+      document
+        .getElementById("ios-download")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          // TODO: 실제 App Store 링크로 변경
+          alert("iOS 앱이 곧 출시됩니다!");
+        });
+
+      // 스크롤 애니메이션
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // 초기 스타일 설정
+      document.querySelectorAll(".fade-in-up").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(30px)";
+        el.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

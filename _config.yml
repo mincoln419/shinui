@@ -1,0 +1,62 @@
+# GitHub Pages 설정
+title: 시누이 - 시간을 누적하고 이정표를 세우다
+description: 시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱
+author: CodeNYang
+email: contact@codenyang.com
+url: https://codenyang.github.io/shinui
+baseurl: /shinui
+
+# SEO 설정
+lang: ko
+timezone: Asia/Seoul
+
+# 플러그인
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SEO 태그 설정
+seo:
+  type: WebSite
+  name: 시누이
+  description: 시누이와 함께하는 24시간 시간 관리 및 3줄 일기 앱
+  image: /assets/images/og-image.png
+  twitter:
+    card: summary_large_image
+    creator: "@codenyang"
+  facebook:
+    app_id: "your-facebook-app-id"
+    publisher: "https://facebook.com/codenyang"
+
+# 네비게이션
+navigation:
+  - title: 홈
+    url: /
+  - title: 다운로드
+    url: /#download
+  - title: 개인정보처리방침
+    url: /privacy.html
+  - title: 이용약관
+    url: /terms.html
+
+# 소셜 링크
+social:
+  github: codenyang
+  email: contact@codenyang.com
+  twitter: codenyang
+
+# 빌드 설정
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# 포함할 파일
+include:
+  - _redirects

@@ -1,0 +1,29 @@
+{
+  "name": "shinui-website",
+  "version": "1.0.0",
+  "description": "시누이 앱 공식 웹사이트 - GitHub Pages",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080 -o",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Deploy to GitHub Pages'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mincoln419/shinui-website.git"
+  },
+  "keywords": [
+    "shinui",
+    "time-management",
+    "productivity",
+    "app",
+    "website",
+    "github-pages"
+  ],
+  "author": "CodeNYang",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "homepage": "https://mincoln419.github.io/shinui-website"
+}

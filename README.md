@@ -1,189 +1,106 @@
-# 시누이 앱 공식 웹사이트
+# Time Template 웹사이트
 
-시누이 앱의 공식 다운로드 페이지입니다.
+Time Template 앱의 공식 웹사이트입니다.
 
-## 🌐 라이브 사이트
+## 🎯 프로젝트 개요
 
-**공식 웹사이트**: [https://mincoln419.github.io/shinui-website](https://mincoln419.github.io/shinui-website)
+**Time Template**은 "시간을 누적하고 이정표를 세우다"라는 의미로, 체계적인 24시간 시간 관리 및 3줄 일기 앱입니다.
 
-## 📱 시누이 앱 소개
+## 🌟 주요 특징
 
-**시누이**는 "시간을 누적하고 이정표를 세우다"라는 의미로, 귀여운 잔소리꾼 캐릭터와 함께하는 24시간 시간 관리 및 3줄 일기 앱입니다.
+### 📱 **혁신적인 2단계 체크박스 시스템**
 
-### 🌟 주요 기능
+- **1단계**: 예정된 스케줄 완료 (계획대로 진행했는지 체크)
+- **2단계**: 실제 한 일 확정 (실제로 완료한 작업 확정)
+- 통계는 2단계 기준으로 산출되어 정확한 성과 측정
 
-- **24시간 시간 관리**: 시간대별로 세밀하게 계획하고 실행하는 2단계 체크박스 시스템
-- **3줄 일기**: 느낀점, 후회하는 점, 각오를 통해 하루를 되돌아보기
-- **통계 및 분석**: 카테고리별 시간 분배와 완료율을 시각적으로 확인
-- **템플릿 관리**: 개인 맞춤형 시간 관리 템플릿 생성 및 관리
-- **캐릭터 시스템**: 시누냥(고양이)과 시누견(시바견) 중 선택 가능한 시간 코치
+### 📖 **감성적인 3줄 일기**
 
-### 🎨 캐릭터
+- **오늘은 어땠나..**: 오늘 하루의 경험과 감정을 자유롭게 기록
+- **아쉬운 일들!**: 아쉬웠던 일들과 개선점을 솔직하게 적어보기
+- **내일의 이정표!**: 내일을 위한 다짐과 목표를 구체적으로 설정
 
-#### 🐱 시누냥 (고양이 코치)
+### 🎨 **민트 라일락 테마**
 
-- 츤데레 성격의 고양이 코치
-- 툭툭 던지면서도 끝까지 챙겨주는 스타일
-- 게으름을 경계하는 잔소리꾼이지만 속은 따뜻한 조언자
+- 부드러운 민트 그린과 라일락 퍼플의 조화로운 색상
+- 라이트/다크 모드 모두에서 편안한 사용자 경험
+- Time Template 이미지 기반 아이콘과 스플래시 화면
 
-#### 🐶 시누견 (시바견 코치)
+### 🐱 **캐릭터 시스템**
 
-- 활발하고 직진형인 시바견 코치
-- 열정 넘치는 cheerleader
-- 적극적으로 밀어주는 트레이너 역할
-
-## 🚀 다운로드
-
-### Android
-
-- Google Play Store에서 다운로드 (출시 예정)
-- APK 파일 직접 다운로드 (개발자 버전)
-
-### iOS
-
-- App Store에서 다운로드 (출시 예정)
-- TestFlight 베타 테스트 (제한적)
+- **시누냥 (고양이)**: 츤데레 스타일의 잔소리꾼 코치
+- **시누견 (시바견)**: 활발하고 열정적인 cheerleader
+- 상황별 개성화된 대사와 응원
 
 ## 🛠️ 기술 스택
 
-- **HTML5**: 시맨틱 마크업
-- **CSS3**: 반응형 디자인, Flexbox, Grid
-- **JavaScript**: 바닐라 JS (ES6+)
-- **GitHub Pages**: 정적 사이트 호스팅
-- **Google Fonts**: Noto Sans KR 폰트
+- **Frontend**: Flutter (Dart)
+- **Backend**: Spring Boot (Java)
+- **Database**: SQLite
+- **State Management**: Riverpod
+- **Internationalization**: Easy Localization
+- **Code Generation**: Freezed, json_serializable
 
-## 📁 프로젝트 구조
+## 🚀 배포
+
+이 웹사이트는 GitHub Pages를 통해 배포됩니다.
+
+- **URL**: https://codenyang.github.io/time-template
+- **브랜치**: main
+- **빌드**: 자동 배포
+
+## 📁 파일 구조
 
 ```
-shinui-website/
-├── index.html              # 메인 페이지
-├── privacy.html            # 개인정보처리방침
-├── terms.html              # 이용약관
-├── _config.yml             # Jekyll 설정
-├── _redirects              # 리다이렉트 설정
-├── assets/
-│   ├── icons/
-│   │   ├── shinui-icon.png # 앱 아이콘
-│   │   └── favicon.png     # 파비콘
-│   └── images/
-│       └── og-image.png    # 소셜 미디어 이미지
-├── package.json            # Node.js 설정
-├── .gitignore              # Git 무시 파일
-└── README.md               # 프로젝트 설명
+time-template-website/
+├── index.html          # 메인 페이지
+├── privacy.html        # 개인정보처리방침
+├── terms.html          # 이용약관
+├── assets/             # 정적 리소스
+│   ├── icons/          # 아이콘 파일
+│   └── images/         # 이미지 파일
+├── _config.yml         # Jekyll 설정
+├── _redirects          # 리다이렉트 설정
+└── README.md           # 프로젝트 문서
 ```
 
-## 🚀 로컬 개발
+## 🎨 디자인 시스템
 
-### 요구사항
+### 색상 팔레트
 
-- Node.js 16+ (선택사항)
-- Git
+- **Primary**: #9BB5A8 (민트 그린)
+- **Secondary**: #C8A8D8 (라일락 퍼플)
+- **Background**: #F8FBF9 (연한 민트)
+- **Text**: #2D3A32 (진한 민트)
 
-### 설치 및 실행
+### 폰트
 
-```bash
-# 저장소 클론
-git clone https://github.com/mincoln419/shinui-website.git
-cd shinui-website
+- **Primary**: Noto Sans KR
+- **Weights**: 300, 400, 500, 700
 
-# 의존성 설치 (선택사항)
-npm install
+## 📱 앱 다운로드
 
-# 로컬 서버 실행 (선택사항)
-npm start
+- **iOS**: App Store (준비 중)
+- **Android**: Google Play Store (준비 중)
 
-# 또는 간단히 브라우저에서 index.html 열기
-open index.html
-```
+## 🤝 기여하기
 
-## 📝 업데이트 가이드
-
-### 다운로드 링크 업데이트
-
-1. **Android APK 링크**:
-
-   ```html
-   <!-- docs/index.html에서 수정 -->
-   <a
-     href="https://github.com/mincoln419/shinui/releases/download/v1.0.0/shinui-v1.0.0.apk"
-     class="download-btn android"
-   ></a>
-   ```
-
-2. **iOS App Store 링크**:
-   ```html
-   <!-- docs/index.html에서 수정 -->
-   <a
-     href="https://apps.apple.com/app/shinui/id[앱ID]"
-     class="download-btn ios"
-   ></a>
-   ```
-
-### 앱 정보 업데이트
-
-- **버전 정보**: `index.html`의 메타 태그 및 내용
-- **스크린샷**: `assets/images/` 폴더에 추가
-- **앱 설명**: `index.html`의 기능 설명 섹션
-
-## 🎨 디자인 커스터마이징
-
-### 색상 변경
-
-```css
-/* 메인 그라데이션 */
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-/* 버튼 색상 */
-.download-btn.android {
-  background: linear-gradient(135deg, #3ddc84, #2bb673);
-}
-
-.download-btn.ios {
-  background: linear-gradient(135deg, #007aff, #0056b3);
-}
-```
-
-### 폰트 변경
-
-Google Fonts에서 다른 폰트를 선택하고 `index.html`의 링크를 업데이트하세요.
-
-## 📊 분석 및 모니터링
-
-### Google Analytics 설정
-
-```html
-<!-- index.html에 추가 -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
-  gtag("js", new Date());
-  gtag("config", "GA_MEASUREMENT_ID");
-</script>
-```
-
-## 🔧 GitHub Pages 설정
-
-1. **Repository Settings** → **Pages**
-2. **Source**: Deploy from a branch
-3. **Branch**: main
-4. **Folder**: / (root)
-
-## 📞 문의 및 지원
-
-- **이메일**: contact@codenyang.com
-- **GitHub Issues**: [이슈 리포트](https://github.com/mincoln419/shinui-website/issues)
-- **메인 앱 저장소**: [shinui](https://github.com/mincoln419/times_line)
+1. Fork 저장소
+2. Feature 브랜치 생성: `git checkout -b feature/새기능명`
+3. 변경사항 커밋: `git commit -m "Add 새기능"`
+4. 브랜치 푸시: `git push origin feature/새기능명`
+5. Pull Request 생성
 
 ## 📄 라이선스
 
-MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+이 프로젝트는 MIT License 하에 배포됩니다.
+
+## 📞 문의
+
+- **이메일**: your.email@example.com
+- **GitHub**: [Issues](https://github.com/codenyang/time-template/issues)
+- **웹사이트**: https://codenyang.github.io/time-template
 
 ---
 
-© 2024 CodeNYang. All rights reserved.
+**Time Template과 함께 시간을 누적하고 이정표를 세워보세요!** ⏰✨

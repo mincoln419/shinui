@@ -585,9 +585,9 @@ External Data Sources (SQLite, API)
 
 ## 🙋‍♂️ 문의 및 지원
 
-- **이슈 및 버그 리포트**: [GitHub Issues](링크)
-- **기능 요청**: [GitHub Discussions](링크)
-- **이메일**: your.email@example.com
+- **이슈 및 버그 리포트**: [GitHub Issues](https://github.com/mincoln419/time_template/issues)
+- **기능 요청**: [GitHub Issues](https://github.com/mincoln419/time_template/issues)
+- **웹사이트**: https://codenyang.github.io/time-template
 
 ---
 
